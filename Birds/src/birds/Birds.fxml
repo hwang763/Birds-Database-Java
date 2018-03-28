@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="971.0" style="-fx-background-image: url(&quot;file:src/Birds/WesternBackground.png&quot;);" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="birds.BirdsController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="971.0" style="-fx-background-image: url(&quot;file:src/Birds/WesternBackground.png&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="birds.BirdsController">
    <top>
       <MenuBar fx:id="mainMenu" BorderPane.alignment="CENTER">
         <menus>
@@ -18,4 +21,34 @@
         </menus>
       </MenuBar>
    </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="8.0" layoutY="8.0" prefHeight="676.0" prefWidth="955.0">
+               <children>
+                  <Button layoutX="192.0" layoutY="57.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="105.0" text="First " />
+                  <Button layoutX="346.0" layoutY="57.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="101.0" text="Next" />
+                  <Button layoutX="488.0" layoutY="59.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="97.0" text="Previous" />
+                  <Button layoutX="619.0" layoutY="57.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="91.0" text="Last " />
+                  <TextArea layoutX="139.0" layoutY="203.0" prefHeight="133.0" prefWidth="600.0" />
+                  <Button layoutX="777.0" layoutY="250.0" mnemonicParsing="false" text="Delete " />
+                  <Pane layoutX="139.0" layoutY="363.0" prefHeight="262.0" prefWidth="735.0">
+                     <children>
+                        <Button layoutX="395.0" layoutY="87.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="99.0" text="Play" />
+                        <Button layoutX="540.0" layoutY="87.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="99.0" text="Stop" />
+                        <Pane layoutX="-1.0" prefHeight="263.0" prefWidth="307.0" />
+                     </children>
+                  </Pane>
+                  <Label layoutX="139.0" layoutY="620.0" prefHeight="32.0" prefWidth="105.0" text="Bird Name:" />
+                  <TextField layoutX="234.0" layoutY="617.0" />
+                  <Label layoutX="507.0" layoutY="623.0" prefHeight="27.0" prefWidth="109.0" text="Bird Name: " />
+                  <ComboBox layoutX="610.0" layoutY="617.0" prefWidth="150.0" />
+                  <Button layoutX="796.0" layoutY="617.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="64.0" text="Find" />
+                  <TextField layoutX="138.0" layoutY="152.0" />
+                  <Button layoutX="890.0" layoutY="6.0" mnemonicParsing="false" text="Exit" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>
