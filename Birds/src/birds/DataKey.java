@@ -17,9 +17,11 @@ public class DataKey {
 	/**
 	 * Returns 0 if this DataKey is equal to k, returns -1 if this DataKey is smaller
 	 * than k, and it returns 1 otherwise. 
+     * @param k
+     * @return 
 	 */
 	public int compareTo(DataKey k) {
-            if (birdName==k.birdName&&birdSize==k.birdSize){
+            if (k.birdName==birdName&&birdSize==k.birdSize){
                 return 0;
             }
             else if (birdSize<k.birdSize){
