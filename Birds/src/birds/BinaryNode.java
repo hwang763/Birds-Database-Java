@@ -1,6 +1,6 @@
 /*
- * DataKeyo change this license header, choose License Headers in Project Properties.
- * DataKeyo change this template file, choose DataKeyools | DataKeyemplates
+ * BirdRecordo change this license header, choose License Headers in Project Properties.
+ * BirdRecordo change this template file, choose BirdRecordools | BirdRecordemplates
  * and open the template in the editor.
  */
 package birds;
@@ -8,80 +8,89 @@ package birds;
 /**
  *
  * @author Mickey
+ * @param <BirdRecord>
  */
-public class BinaryNode <DataKey> {
-    private DataKey data;
-private BinaryNode < DataKey > left;
-private BinaryNode < DataKey > right;
+public class BinaryNode <BirdRecord> {
+    public BirdRecord data;
+    public BinaryNode<BirdRecord> left;
+    public BinaryNode<BirdRecord> right;
+    
+    public BinaryNode () {
 
-public BinaryNode () {
-    this (null); // call next constructor
+
+this (null); // call next constructor
 } // end default constructor
-
-public BinaryNode (DataKey dataPortion) {
-    this (dataPortion, null, null); // call next constructor
+public BinaryNode (BirdRecord dataPortion) {
+this (dataPortion, null, null); // call next constructor
 } // end constructor
 
-public BinaryNode (DataKey dataPortion, BinaryNode < DataKey > leftChild, BinaryNode < DataKey > rightChild) {
-    data = dataPortion;
-    left = leftChild;
-    right = rightChild;
-} // end constructor
 
-public DataKey getData () {
-    return data;
+public BinaryNode (BirdRecord dataPortion, BinaryNode < BirdRecord > leftChild, BinaryNode < BirdRecord > rightChild) {
+
+data = dataPortion;
+left = leftChild;
+right = rightChild;
+} // end constructor
+public BirdRecord getData () {
+return data;
 } // end getData
-
-public void setData (DataKey newData) {
-    data = newData;
+public void setData (BirdRecord newData) {
+data = newData;
 } // end setData
-
-public BinaryNode < DataKey > getLeftChild () {
-    return left;
+public BinaryNode < BirdRecord > getLeftChild () {
+return left;
 } // end getLeftChild
 
-public void setLeftChild (BinaryNode < DataKey > leftChild) {
-    left = (BinaryNode < DataKey > ) leftChild;
+public void setLeftChild (BinaryNode< BirdRecord > leftChild) {
+left = (BinaryNode < BirdRecord> ) leftChild;
+
 } // end setLeftChild
 
 public boolean hasLeftChild () {
     return left != null;
 } // end hasLeftChild
 
+
+public BinaryNode < BirdRecord > getRightChild () {
+return left;
+} 
+public void setRightChild (BinaryNode< BirdRecord > rightChild) {
+right = (BinaryNode < BirdRecord> ) rightChild;
+} 
+public boolean hasRightChild () {
+return right != null;
+} 
+
 public boolean isLeaf () {
     return (left == null) && (right == null);
 } // end isLeaf
 
-public BinaryNode < DataKey > getRightChild () {
-    return left;
-} // end getLeftChild
+// Implementations of getRightChild, setRightChild, and hasRightChild are analogous to
+// their left-child counterparts.
 
-public void setRightChild (BinaryNode < DataKey > rightChild) {
-    right = (BinaryNode < DataKey > ) rightChild;
-} // end setLeftChild
 
-public boolean hasRightChild () {
-    return right!= null;
-} // end hasLeftChild
+public BinaryNode < BirdRecord > copy () {
+BinaryNode < BirdRecord > newRoot = new BinaryNode < BirdRecord > (data);
+if (left != null)
+newRoot.left = (BinaryNode < BirdRecord > ) left.copy ();
+if (right != null)
+newRoot.right = (BinaryNode < BirdRecord > ) right.copy ();
+return newRoot;
 
-public BinaryNode < DataKey > copy () {
-    BinaryNode < DataKey > newRoot = new BinaryNode < DataKey > (data);
-    if (left != null)
-        newRoot.left = (BinaryNode < DataKey > ) left.copy ();
-    if (right != null)
-        newRoot.right = (BinaryNode < DataKey > ) right.copy ();
-    return newRoot;
 } // end copy
 
 public int getHeight () {
     return getHeight (this); // call private getHeight
 } // end getHeight
 
-private int getHeight (BinaryNode < DataKey > node) {
-    int height = 0;
-    if (node != null)
-        height = 1 + Math.max (getHeight (node.left), getHeight (node.right));
-    return height;
+
+
+private int getHeight (BinaryNode < BirdRecord > node) {
+int height = 0;
+if (node != null)
+height = 1 + Math.max (getHeight (node.left), getHeight (node.right));
+return height;
+
 } // end getHeight
 
 public int getNumberOfNodes () {
@@ -93,5 +102,6 @@ public int getNumberOfNodes () {
         rightNumber = right.getNumberOfNodes ();
     return 1 + leftNumber + rightNumber;
 } // end getNumberOfNodes 
+
 
 }
