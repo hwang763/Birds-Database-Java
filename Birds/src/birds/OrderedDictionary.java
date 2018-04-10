@@ -86,13 +86,16 @@ public class OrderedDictionary extends BinaryNode {
     
     while (x != null)
     {
-        if (x.getData().getDataKey().compareTo(node.getData().getDataKey())==1)   
+        System.out.println(root.getData().getDataKey().getbirdName());
+        if ((x.getData().getDataKey().compareTo(node.getData().getDataKey()))==1)   
         {
+            System.out.println(node.getData().getDataKey().getbirdName());
             y = x;
             x = x.getLeftChild();
         }
         else
         {
+            System.out.println(node.getData().getDataKey().getbirdName());
             y = x;
             x = x.getRightChild();
         }
@@ -101,6 +104,7 @@ public class OrderedDictionary extends BinaryNode {
     // y will be the parent of node
     if (y == null) 
     {
+        //root.data=node.getData();
         root = node;
         return;
     }
