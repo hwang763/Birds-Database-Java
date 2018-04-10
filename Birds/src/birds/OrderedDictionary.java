@@ -246,8 +246,9 @@ public class OrderedDictionary extends BinaryNode {
     
     public boolean isEmpty()
     {
-    if (root
-            return true;
+    if (root.isLeaf()){
+            return true;}
+    else return false;
     }
     
 

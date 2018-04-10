@@ -71,7 +71,9 @@ public BinaryNode<BirdRecord> getParentNode(){
     return parent;
 }
 public boolean isLeaf () {
-    return (left == null) && (right == null);
+    if ((left == null) && (right == null))
+    return true ;
+    else return false;
 } // end isLeaf
 
 // Implementations of getRightChild, setRightChild, and hasRightChild are analogous to
