@@ -12,11 +12,41 @@ package birds;
 
 
 
-public class OrderedDictionary {
-    
+public class OrderedDictionary extends BinaryNode {
+    private BirdRecord record; 
+    private BinaryNode<BirdRecord> root=new BinaryNode();
+    private BinaryNode<BirdRecord> current=root; 
     public BirdRecord find(DataKey k) 
     {
-        
+    if (root==null){
+        return null;}
+    while ((root.left!=null)&&(root.right!=null)){
+      if ((root.data.getDataKey().compareTo(k))== 0){
+           return root.data;
+      }
+      if ((root.left.data.getDataKey().compareTo(k))== 0){
+           return root.left.data;
+      }
+      if ((root.right.data.getDataKey().compareTo(k))== 0){
+           return root.right.data;
+      }
+      current=current.left;
+    }
+    current = root;
+        while ((root.left!=null)&&(root.right!=null)){
+      if ((root.data.getDataKey().compareTo(k))== 0){
+           return root.data;
+      }
+      if ((root.left.data.getDataKey().compareTo(k))== 0){
+           return root.left.data;
+      }
+      if ((root.right.data.getDataKey().compareTo(k))== 0){
+           return root.right.data;
+      }
+      current=current.right;
+    }
+
+}
     }
     public void insert(BirdRecord r)
     {
@@ -47,6 +77,7 @@ public class OrderedDictionary {
     }
     return record;
     }
+    
     public BirdRecord largest()
     {
     if()
