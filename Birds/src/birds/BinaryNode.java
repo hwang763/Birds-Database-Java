@@ -1,6 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * DataKeyo change this license header, choose License Headers in Project Properties.
+ * DataKeyo change this template file, choose DataKeyools | DataKeyemplates
  * and open the template in the editor.
  */
 package birds;
@@ -16,12 +16,17 @@ public class BinaryNode <DataKey> {
     private BinaryNode<DataKey> right;
     
     public BinaryNode () {
+
+
 this (null); // call next constructor
 } // end default constructor
 public BinaryNode (DataKey dataPortion) {
 this (dataPortion, null, null); // call next constructor
 } // end constructor
-public BinaryNode (DataKey dataPortion, BinaryNode <DataKey> leftChild, BinaryNode <DataKey> rightChild) {
+
+
+public BinaryNode (DataKey dataPortion, BinaryNode < DataKey > leftChild, BinaryNode < DataKey > rightChild) {
+
 data = dataPortion;
 left = leftChild;
 right = rightChild;
@@ -35,12 +40,17 @@ data = newData;
 public BinaryNode < DataKey > getLeftChild () {
 return left;
 } // end getLeftChild
+
 public void setLeftChild (BinaryNode< DataKey > leftChild) {
 left = (BinaryNode < DataKey> ) leftChild;
+
+
+
 } // end setLeftChild
 public boolean hasLeftChild () {
 return left != null;
 } // end hasLeftChild
+
 public BinaryNode < DataKey > getRightChild () {
 return left;
 } 
@@ -55,6 +65,8 @@ return (left == null) && (right == null);
 } // end isLeaf
 // Implementations of getRightChild, setRightChild, and hasRightChild are analogous to
 // their left-child counterparts.
+
+
 public BinaryNode < DataKey > copy () {
 BinaryNode < DataKey > newRoot = new BinaryNode < DataKey > (data);
 if (left != null)
@@ -79,6 +91,8 @@ if (left != null)
 leftNumber = left.getNumberOfNodes ();
 if (right != null)
 rightNumber = right.getNumberOfNodes ();
+
 return rightNumber + 1 + leftNumber;
 } // end getNumberOfNodes
+
 }
