@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Christine%20Kim/Desktop/hwang763_ckim328_SE2205_Assignment2/Birds/test/birds/OrderedDictionaryTest.java</file>
             <file>file:/C:/Users/Christine%20Kim/Desktop/hwang763_ckim328_SE2205_Assignment2/Birds/src/birds/DictionaryException.java</file>
             <file>file:/C:/Users/Christine%20Kim/Desktop/hwang763_ckim328_SE2205_Assignment2/Birds/src/birds/OrderedDictionary.java</file>
@@ -12,6 +13,18 @@
             <file>file:/C:/Users/Christine%20Kim/Desktop/hwang763_ckim328_SE2205_Assignment2/Birds/src/birds/Birds.java</file>
             <file>file:/C:/Users/Christine%20Kim/Desktop/hwang763_ckim328_SE2205_Assignment2/Birds/src/birds/DataKey.java</file>
             <file>file:/C:/Users/Christine%20Kim/Desktop/hwang763_ckim328_SE2205_Assignment2/Birds/src/birds/BinaryNode.java</file>
+=======
+            <file>file:/C:/SE2205/Assignment%202/hwang763_ckim328_SE2205_Assignment2/Birds/src/birds/OrderedDictionaryADT.java</file>
+            <file>file:/C:/SE2205/Assignment%202/hwang763_ckim328_SE2205_Assignment2/Birds/src/birds/DataKey.java</file>
+            <file>file:/C:/SE2205/Assignment%202/hwang763_ckim328_SE2205_Assignment2/Birds/src/birds/BirdsController.java</file>
+            <file>file:/C:/SE2205/Assignment%202/hwang763_ckim328_SE2205_Assignment2/Birds/src/birds/AlertController.java</file>
+            <file>file:/C:/SE2205/Assignment%202/hwang763_ckim328_SE2205_Assignment2/Birds/src/birds/BinaryNode.java</file>
+            <file>file:/C:/SE2205/Assignment%202/hwang763_ckim328_SE2205_Assignment2/Birds/test/birds/OrderedDictionaryTest.java</file>
+            <file>file:/C:/SE2205/Assignment%202/hwang763_ckim328_SE2205_Assignment2/Birds/src/birds/Birds.java</file>
+            <file>file:/C:/SE2205/Assignment%202/hwang763_ckim328_SE2205_Assignment2/Birds/src/birds/DictionaryException.java</file>
+            <file>file:/C:/SE2205/Assignment%202/hwang763_ckim328_SE2205_Assignment2/Birds/src/birds/OrderedDictionary.java</file>
+            <file>file:/C:/SE2205/Assignment%202/hwang763_ckim328_SE2205_Assignment2/Birds/src/birds/BirdRecord.java</file>
+>>>>>>> master
         </group>
     </open-files>
 </project-private>
