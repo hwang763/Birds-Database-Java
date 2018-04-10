@@ -163,7 +163,30 @@ public class OrderedDictionary extends BinaryNode {
     public BirdRecord successor(DataKey k)
     {
     
+    BinaryNode<BirdRecord> node= findNode(k);
+    //BirdRecord record;
+    
+    //k.
+    if (node == null)
+        return null;
+   
+    
+    if (node.getRightChild() != null)
+        return getSmallest(node.getRightChild());
+   
+    BinaryNode <BirdRecord>y = node.getParentNode();
+    BinaryNode <BirdRecord>x = node;
+    while (y != null && x == y.getRightChild())
+    {
+        x = y;
+        y = y.getParentNode();
     }
+    BirdRecord record=y.getData();
+    return record;
+}
+        
+        
+    
     
     public BirdRecord predecessor(DataKey k)
     {
