@@ -230,7 +230,13 @@ public class OrderedDictionary extends BinaryNode {
     
     public BirdRecord largest()
     {
-    if()
+      if (root == null)
+        return null;
+   
+    if (root.getRightChild() != null)
+        return largestNode(root.getRightChild()).getData();
+   
+    return root.getData();
     }
     
     private BinaryNode<BirdRecord> largestNode(BinaryNode<BirdRecord> root)
