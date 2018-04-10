@@ -16,7 +16,7 @@ public class OrderedDictionary extends BinaryNode {
     private BirdRecord record; 
     private BinaryNode<BirdRecord> root=new BinaryNode();
    
-    public BirdRecord find(DataKey k) 
+    public BirdRecord find(DataKey k) throws DictionaryException 
     { BinaryNode<BirdRecord> current=root; 
    while ((current.left!=null)&&(current.right!=null)){
       if ((current.data.getDataKey().compareTo(k))== 0){
@@ -77,7 +77,7 @@ public class OrderedDictionary extends BinaryNode {
     }
 
     
-    public void insert(BirdRecord r) 
+    public void insert(BirdRecord r) throws DictionaryException
     {   BinaryNode<BirdRecord> x, y;
     BinaryNode<BirdRecord> node= new BinaryNode(r);
     
@@ -112,7 +112,7 @@ public class OrderedDictionary extends BinaryNode {
     
     node.setParentNode(y);
     }
-    public void remove(DataKey k)
+    public void remove(DataKey k) throws DictionaryException
     {BinaryNode <BirdRecord> node= null;
     node = findNode(k);
      // Case 1: node does not have a child, just delete it
@@ -160,7 +160,7 @@ public class OrderedDictionary extends BinaryNode {
     }
     }
     
-    public BirdRecord successor(DataKey k)
+    public BirdRecord successor(DataKey k)throws DictionaryException
     {
     
     BinaryNode<BirdRecord> node= findNode(k);
@@ -201,7 +201,7 @@ public class OrderedDictionary extends BinaryNode {
     }
         
     
-    public BirdRecord predecessor(DataKey k)
+    public BirdRecord predecessor(DataKey k) throws DictionaryException
     {
       BinaryNode<BirdRecord> node= findNode(k);
       if (node == null)
@@ -222,7 +222,7 @@ public class OrderedDictionary extends BinaryNode {
     return record;
     }
     
-    public BirdRecord smallest()
+    public BirdRecord smallest() throws DictionaryException
     {
      if (root == null)
         return null;
@@ -245,7 +245,7 @@ public class OrderedDictionary extends BinaryNode {
     }
     
     
-    public BirdRecord largest()
+    public BirdRecord largest() throws DictionaryException
     {
       if (root == null)
         return null;
