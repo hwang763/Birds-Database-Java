@@ -126,10 +126,8 @@ public class OrderedDictionary extends BinaryNode {
     //k.
     if (node == null)
         return null;
-   
-    
     if (node.getRightChild() != null)
-        return getSmallest(node.getRightChild());
+        return smallestNode(node.getRightChild()).getData();
    
     BinaryNode <BirdRecord>y = node.getParentNode();
     BinaryNode <BirdRecord>x = node;
@@ -142,12 +140,26 @@ public class OrderedDictionary extends BinaryNode {
     return record;
 }
         
-        
-    
     
     public BirdRecord predecessor(DataKey k)
     {
+      BinaryNode<BirdRecord> node= findNode(k);
+      if (node == null)
+        return null;
     
+      if (node.getLeftChild() != null)
+        return largestNode(node.getLeftChild()).getData();
+   
+       BinaryNode <BirdRecord>y = node.getParentNode();
+       BinaryNode <BirdRecord>x = node;
+    while (y != null && x == y.getLeftChild())
+    {
+        x = y;
+        y = y.getParentNode();
+    }
+
+    BirdRecord record=y.getData();
+    return record;
     }
     
     public BirdRecord smallest()
@@ -161,10 +173,34 @@ public class OrderedDictionary extends BinaryNode {
     return record;
     }
     
+    private BinaryNode<BirdRecord> smallestNode(BinaryNode<BirdRecord> root)
+    {
+       if (root == null)
+        return null;
+  
+    if (root.getLeftChild() != null)
+        return smallestNode(root.getLeftChild());
+  
+    return root;
+    }
+    
+    
     public BirdRecord largest()
     {
     if()
     }
+    
+    private BinaryNode<BirdRecord> largestNode(BinaryNode<BirdRecord> root)
+    {
+         if (root == null)
+        return null;
+   
+    if (root.getRightChild() != null)
+        return largestNode(root.getRightChild());
+   
+    return root;  
+    }
+    
     public boolean isEmpty()
     {
     return true;
