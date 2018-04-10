@@ -210,7 +210,8 @@ public class OrderedDictionary extends BinaryNode {
     }
     public boolean isEmpty()
     {
-    return true;
+    if (root
+            return true;
     }
     
 
