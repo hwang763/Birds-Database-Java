@@ -13,19 +13,41 @@ public class OrderedDictionary {
     
     public BirdRecord find(DataKey k) 
     {
+        
     }
     public void insert(BirdRecord r)
-    {}
+    {
+        
+    }
     public void remove(DataKey k)
-    {}
+    {
+    
+    }
+    
     public BirdRecord successor(DataKey k)
-    {}
+    {
+    
+    }
+    
     public BirdRecord predecessor(DataKey k)
-    {}
+    {
+    
+    }
+    
     public BirdRecord smallest()
-    {}
+    {
+    BirdRecord record;
+    DataKey j, k;
+    if (k.getBirdSize()==1)
+    {
+    
+    }
+    return record;
+    }
     public BirdRecord largest()
-    {}
+    {
+    if()
+    }
     public boolean isEmpty()
     {
     return true;
