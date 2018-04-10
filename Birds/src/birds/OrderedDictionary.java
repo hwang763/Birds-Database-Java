@@ -14,7 +14,7 @@ package birds;
 
 public class OrderedDictionary extends BinaryNode {
     private BirdRecord record; 
-    private BinaryNode<BirdRecord> root=new BinaryNode();
+    private BinaryNode<BirdRecord> root= null;
    
     public BirdRecord find(DataKey k) throws DictionaryException 
     { BinaryNode<BirdRecord> current=root; 
@@ -86,6 +86,7 @@ public class OrderedDictionary extends BinaryNode {
     
     while (x != null)
     {
+        System.out.println(node.getData().getDataKey().getbirdName());
         if (x.getData().getDataKey().compareTo(node.getData().getDataKey())==1)   
         {
             y = x;
@@ -96,6 +97,8 @@ public class OrderedDictionary extends BinaryNode {
             y = x;
             x = x.getRightChild();
         }
+       
+        
     }
     
     // y will be the parent of node
