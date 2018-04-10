@@ -11,4 +11,24 @@ package birds;
  */
 public class OrderedDictionary {
     
+    public BirdRecord find(DataKey k) 
+    {
+    }
+    public void insert(BirdRecord r)
+    {}
+    public void remove(DataKey k)
+    {}
+    public BirdRecord successor(DataKey k)
+    {}
+    public BirdRecord predecessor(DataKey k)
+    {}
+    public BirdRecord smallest()
+    {}
+    public BirdRecord largest()
+    {}
+    public boolean isEmpty()
+    {
+    return true;
+    }
+    
 }
