@@ -90,13 +90,13 @@ public class OrderedDictionary extends BinaryNode {
         if (x.getData().getDataKey().compareTo(node.getData().getDataKey())==1)   
 
         {
-            System.out.println(node.getData().getDataKey().getbirdName());
+            //System.out.println(node.getData().getDataKey().getbirdName());
             y = x;
             x = x.getLeftChild();
         }
         else
         {
-            System.out.println(node.getData().getDataKey().getbirdName());
+            //System.out.println(node.getData().getDataKey().getbirdName());
             y = x;
             x = x.getRightChild();
         }
