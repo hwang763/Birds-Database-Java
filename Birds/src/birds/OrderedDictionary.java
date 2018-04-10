@@ -113,8 +113,51 @@ public class OrderedDictionary extends BinaryNode {
     node.setParentNode(y);
     }
     public void remove(DataKey k)
+    {BinaryNode <BirdRecord> node= null;
+    node = findNode(k);
+     // Case 1: node does not have a child, just delete it
+    if (node.getLeftChild() == null && node.getRightChild() == null)
     {
-    
+        if (node.getParentNode() != null && node.getParentNode().getLeftChild() == node)
+            node.setLeftChild(null);
+        else if (node.getParentNode() != null && node.getParentNode().getRightChild() == node)
+            node.setRightChild(null);            
+    }
+    // Case 2: node has only one child, splice the child with its parent
+    else if (node.getLeftChild() == null || node.getRightChild() == null)
+    {
+        if (node.getParentNode() != null)
+        {
+            BinaryNode<BirdRecord> x = node.getLeftChild() == null ? node.getRightChild() : node.getLeftChild();
+            if (node.getParentNode().getLeftChild() == node)
+                node.getParentNode().setLeftChild(x);
+            else
+                node.getParentNode().setRightChild(x);
+        }            
+    }
+    // Case 3: node has both children, set the successor of the node to its parent
+    else
+    {
+        BinaryNode<BirdRecord> x = successorNode(node); // x will have at most one child
+        // Instead of deleting we can just copy the successor's data over to the node to be deleted
+        node.setData(x.getData());
+        // Now delete the successor and set its child (if any) to its parent
+        BinaryNode<BirdRecord> nodeChild = x.getLeftChild() == null ? x.getRightChild() : x.getLeftChild();
+        if (x.getLeftChild() != null)
+        {
+            if (x.getParentNode().getLeftChild() == x)
+                x.getParentNode().setLeftChild(nodeChild);
+            else
+                x.getParentNode().setRightChild(nodeChild);
+        }
+        else
+        {
+            if (x.getParentNode().getLeftChild() == x)
+                x.getParentNode().setLeftChild(nodeChild);
+            else
+                x.getParentNode().setRightChild(nodeChild);
+        }
+    }
     }
     
     public BirdRecord successor(DataKey k)
