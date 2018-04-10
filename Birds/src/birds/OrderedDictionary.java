@@ -91,7 +91,32 @@ public class OrderedDictionary extends BinaryNode {
     
     public BirdRecord successor(DataKey k)
     {
+   /* BinaryNode<BirdRecord> x, y;
+    BinaryNode<BirdRecord> node= new BinaryNode();
     
+    
+          // root is a global variable and is the root of the tree
+    x = y = root; // Assume root is initialized to null
+    //k.
+    if (k == null)
+        return null;
+   
+    
+    if (node.getRight() != null)
+        return findMinimum(node.getRight());
+   
+    BinaryNode y = node.getParent();
+    BinaryNode x = node;
+    while (y != null && x == y.getRightChild())
+    {
+        x = y;
+        y = y.getParent();
+    }
+
+    return y;*/
+}
+        
+        
     }
     
     public BirdRecord predecessor(DataKey k)
