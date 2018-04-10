@@ -86,13 +86,12 @@ public class OrderedDictionary extends BinaryNode {
     
     while (x != null)
     {
-<<<<<<< HEAD
-        System.out.println(root.getData().getDataKey().getbirdName());
+
         if ((x.getData().getDataKey().compareTo(node.getData().getDataKey()))==1)   
-=======
+
         System.out.println(node.getData().getDataKey().getbirdName());
         if (x.getData().getDataKey().compareTo(node.getData().getDataKey())==1)   
->>>>>>> master
+
         {
             System.out.println(node.getData().getDataKey().getbirdName());
             y = x;
