@@ -13,7 +13,7 @@ public class BirdRecord {
 
     // default constructor
     public BirdRecord() {
-       
+       //bird key and data key, name and size
         
     }
 
