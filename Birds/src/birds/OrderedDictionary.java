@@ -20,26 +20,26 @@ public class OrderedDictionary extends BinaryNode {
     { BinaryNode<BirdRecord> current=root; 
    while ((current.left!=null)&&(current.right!=null)){
       if ((current.data.getDataKey().compareTo(k))== 0){
-           return current.data;
+           return current.getData();
       }
       if ((current.left.data.getDataKey().compareTo(k))== 0){
-           return current.left.data;
+           return current.left.getData();
       }
       if ((current.right.data.getDataKey().compareTo(k))== 0){
-           return current.right.data;
+           return current.right.getData();
       }
       current=current.left;
     }
     current = root;
         while ((current.left!=null)&&(current.right!=null)){
       if ((current.data.getDataKey().compareTo(k))== 0){
-           return current.data;
+           return current.getData();
       }
       if ((current.left.data.getDataKey().compareTo(k))== 0){
-           return current.left.data;
+           return current.left.getData();
       }
       if ((current.right.data.getDataKey().compareTo(k))== 0){
-           return current.right.data;
+           return current.right.getData();
       }
       current=current.right;
     }
@@ -87,9 +87,6 @@ public class OrderedDictionary extends BinaryNode {
     while (x != null)
     {
 
-        if ((x.getData().getDataKey().compareTo(node.getData().getDataKey()))==1)   
-
-        System.out.println(node.getData().getDataKey().getbirdName());
         if (x.getData().getDataKey().compareTo(node.getData().getDataKey())==1)   
 
         {
