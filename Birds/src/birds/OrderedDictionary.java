@@ -49,9 +49,10 @@ public class OrderedDictionary extends BinaryNode {
     
 
     
-    public void insert(BirdRecord r)
-    {   BinaryNode<BirdRecord> x, y,node = null;
-    node.setData(r);
+    public void insert(BirdRecord r) 
+    {   BinaryNode<BirdRecord> x, y;
+    BinaryNode<BirdRecord> node= new BinaryNode(r);
+    
           // root is a global variable and is the root of the tree
     x = y = root; // Assume root is initialized to null
     
