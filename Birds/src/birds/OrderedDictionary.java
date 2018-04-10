@@ -9,6 +9,8 @@ package birds;
  *
  * @author Mickey
  */
-public class OrderedDictionary {
-    
+public class OrderedDictionary extends BinaryNode {
+    public BirdRecord find (DataKey k){
+        
+    }
 }
