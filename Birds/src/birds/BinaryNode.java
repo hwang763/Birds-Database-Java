@@ -62,8 +62,7 @@ public boolean hasRightChild () {
 return right != null;
 } 
 
-<<<<<<< HEAD
-=======
+
 public void setParentNode(BinaryNode<BirdRecord> node){
     parent = node;
 }
@@ -71,7 +70,6 @@ public void setParentNode(BinaryNode<BirdRecord> node){
 public BinaryNode<BirdRecord> getParentNode(){
     return parent;
 }
->>>>>>> Mickey's-Branch-
 public boolean isLeaf () {
     return (left == null) && (right == null);
 } // end isLeaf
