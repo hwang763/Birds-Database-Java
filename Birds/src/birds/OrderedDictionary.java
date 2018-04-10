@@ -138,7 +138,7 @@ public class OrderedDictionary extends BinaryNode {
     // Case 3: node has both children, set the successor of the node to its parent
     else
     {
-        BinaryNode<BirdRecord> x = successorNode(node); // x will have at most one child
+        BinaryNode<BirdRecord> x = successorNode(findNode(k)); // x will have at most one child
         // Instead of deleting we can just copy the successor's data over to the node to be deleted
         node.setData(x.getData());
         // Now delete the successor and set its child (if any) to its parent
@@ -182,6 +182,23 @@ public class OrderedDictionary extends BinaryNode {
     BirdRecord record=y.getData();
     return record;
 }
+    private BinaryNode <BirdRecord> successorNode(BinaryNode <BirdRecord> node){
+         if (node == null)
+        return null;
+    
+    if (node.getRightChild() != null)
+        return smallestNode(node.getRightChild());
+   
+    BinaryNode<BirdRecord> y = node.getParentNode();
+    BinaryNode<BirdRecord> x = node;
+    while (y != null && x == y.getRightChild())
+    {
+        x = y;
+        y = y.getParentNode();
+    }
+
+    return y;
+    }
         
     
     public BirdRecord predecessor(DataKey k)
