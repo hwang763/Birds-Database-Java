@@ -164,13 +164,13 @@ public class OrderedDictionary extends BinaryNode {
     
     public BirdRecord smallest()
     {
-    BirdRecord record;
-    DataKey j, k;
-    if (k.getBirdSize()==1)
-    {
-    
-    }
-    return record;
+     if (root == null)
+        return null;
+  
+    if (root.getLeftChild() != null)
+        return smallestNode(root.getLeftChild()).getData();
+  
+    return root.getData();
     }
     
     private BinaryNode<BirdRecord> smallestNode(BinaryNode<BirdRecord> root)
