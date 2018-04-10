@@ -18,35 +18,63 @@ public class OrderedDictionary extends BinaryNode {
    
     public BirdRecord find(DataKey k) 
     { BinaryNode<BirdRecord> current=root; 
-   while ((root.left!=null)&&(root.right!=null)){
-      if ((root.data.getDataKey().compareTo(k))== 0){
-           return root.data;
+   while ((current.left!=null)&&(current.right!=null)){
+      if ((current.data.getDataKey().compareTo(k))== 0){
+           return current.data;
       }
-      if ((root.left.data.getDataKey().compareTo(k))== 0){
-           return root.left.data;
+      if ((current.left.data.getDataKey().compareTo(k))== 0){
+           return current.left.data;
       }
-      if ((root.right.data.getDataKey().compareTo(k))== 0){
-           return root.right.data;
+      if ((current.right.data.getDataKey().compareTo(k))== 0){
+           return current.right.data;
       }
       current=current.left;
     }
     current = root;
-        while ((root.left!=null)&&(root.right!=null)){
-      if ((root.data.getDataKey().compareTo(k))== 0){
-           return root.data;
+        while ((current.left!=null)&&(current.right!=null)){
+      if ((current.data.getDataKey().compareTo(k))== 0){
+           return current.data;
       }
-      if ((root.left.data.getDataKey().compareTo(k))== 0){
-           return root.left.data;
+      if ((current.left.data.getDataKey().compareTo(k))== 0){
+           return current.left.data;
       }
-      if ((root.right.data.getDataKey().compareTo(k))== 0){
-           return root.right.data;
+      if ((current.right.data.getDataKey().compareTo(k))== 0){
+           return current.right.data;
       }
       current=current.right;
     }
     return null;
   }
       
-    
+    private BinaryNode<BirdRecord> findNode(DataKey k){
+        BinaryNode<BirdRecord> current=root; 
+   while ((current.left!=null)&&(current.right!=null)){
+      if ((current.data.getDataKey().compareTo(k))== 0){
+           return current;
+      }
+      if ((current.left.data.getDataKey().compareTo(k))== 0){
+           return current.left;
+      }
+      if ((current.right.data.getDataKey().compareTo(k))== 0){
+           return current.right;
+      }
+      current=current.left;
+    }
+    current = root;
+        while ((current.left!=null)&&(current.right!=null)){
+      if ((current.data.getDataKey().compareTo(k))== 0){
+           return current;
+      }
+      if ((root.left.data.getDataKey().compareTo(k))== 0){
+           return current.left;
+      }
+      if ((root.right.data.getDataKey().compareTo(k))== 0){
+           return current.right;
+      }
+      current=current.right;
+    }
+    return null;
+    }
 
     
     public void insert(BirdRecord r) 
