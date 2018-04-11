@@ -64,7 +64,7 @@ public class OrderedDictionary extends BinaryNode {
       }
   }
  
-    return null;
+    throw new DictionaryException ("There is no record that matches this given key!");
   }
       
     private BinaryNode<BirdRecord> findNode(DataKey k){
@@ -152,8 +152,7 @@ public class OrderedDictionary extends BinaryNode {
     node.setParentNode(y);
     }
     public void remove(DataKey k) throws DictionaryException
-    {BinaryNode <BirdRecord> node= null;
-    node = findNode(k);
+    {BinaryNode <BirdRecord> node=findNode(k);
     
      // Case 1: node does not have a child, just delete it
     if ((node.left == null) &&( node.right == null))

@@ -84,11 +84,11 @@ public class OrderedDictionaryTest {
         System.out.println("remove");
         OrderedDictionary instance = new OrderedDictionary();        
         DataKey k = keys[3];
-        try {
+        /*try {
             instance.remove(k);
         } catch (DictionaryException e) {
 
-        }
+        }*/
         BirdRecord r = records[1];
         instance.insert(r);
         k = keys[1];
