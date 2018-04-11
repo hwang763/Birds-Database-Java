@@ -21,7 +21,10 @@ public class DataKey {
      * @return 
 	 */
 	public int compareTo(DataKey k) {
-            if (k.birdName==birdName&&birdSize==k.birdSize){
+            String a=k.getbirdName(), b=getbirdName();
+            //a=k.birdName;
+            //b=birdName;
+            if ((a==b)&&(birdSize==k.birdSize)){
                 return 0;
             }
             else if ((birdSize<k.birdSize)||((birdName.compareTo(k.birdName))<0)){
