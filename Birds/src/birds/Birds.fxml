@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -8,46 +11,56 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="971.0" style="-fx-background-image: url(&quot;file:src/Birds/WesternBackground.png&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="birds.BirdsController">
-   <top>
-      <MenuBar fx:id="mainMenu" BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-                  <MenuItem mnemonicParsing="false" text="Fill Dictionary" />
-              <MenuItem mnemonicParsing="false" onAction="#exit" text="Close" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="868.0" style="-fx-background-image: url(&quot;file:src/Birds/WesternBackground.png&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="birds.BirdsController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="8.0" layoutY="8.0" prefHeight="676.0" prefWidth="955.0">
+            <AnchorPane fx:id="display" layoutX="14.0" layoutY="69.0" prefHeight="586.0" prefWidth="955.0">
                <children>
-                  <Button layoutX="192.0" layoutY="57.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="105.0" text="First " />
-                  <Button layoutX="346.0" layoutY="57.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="101.0" text="Next" />
-                  <Button layoutX="488.0" layoutY="59.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="97.0" text="Previous" />
-                  <Button layoutX="619.0" layoutY="57.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="91.0" text="Last " />
-                  <TextArea layoutX="139.0" layoutY="203.0" prefHeight="133.0" prefWidth="600.0" />
-                  <Button layoutX="777.0" layoutY="250.0" mnemonicParsing="false" text="Delete " />
-                  <Pane layoutX="139.0" layoutY="363.0" prefHeight="262.0" prefWidth="735.0">
+                  <AnchorPane layoutX="-5.0" layoutY="-4.0" prefHeight="610.0" prefWidth="966.0">
                      <children>
-                        <Button layoutX="395.0" layoutY="87.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="99.0" text="Play" />
-                        <Button layoutX="540.0" layoutY="87.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="99.0" text="Stop" />
-                        <Pane layoutX="-1.0" prefHeight="263.0" prefWidth="307.0" />
+                        <Button fx:id="first" layoutX="118.0" layoutY="98.0" mnemonicParsing="false" onAction="#firstBird" prefHeight="52.0" prefWidth="105.0" text="First " />
+                        <Button fx:id="next" layoutX="294.0" layoutY="97.0" mnemonicParsing="false" onAction="#nextBird" prefHeight="53.0" prefWidth="101.0" text="Next" />
+                        <Button fx:id="previous" layoutX="483.0" layoutY="100.0" mnemonicParsing="false" onAction="#prevBird" prefHeight="49.0" prefWidth="97.0" text="Previous" />
+                        <Button layoutX="657.0" layoutY="98.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="91.0" text="Last " />
+                     </children>
+                  </AnchorPane>
+                  <TextArea fx:id="descrip" layoutX="139.0" layoutY="203.0" prefHeight="133.0" prefWidth="600.0" wrapText="true" />
+                  <Button fx:id="delete" layoutX="777.0" layoutY="250.0" mnemonicParsing="false" onAction="#delete" text="Delete " textFill="#0d0d0d">
+                     <effect>
+                        <ColorAdjust />
+                     </effect>
+                  </Button>
+                  <Pane layoutX="113.0" layoutY="338.0" prefHeight="244.0" prefWidth="705.0">
+                     <children>
+                        <Button layoutX="352.0" layoutY="35.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="99.0" text="Play" />
+                        <Button layoutX="540.0" layoutY="35.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="99.0" text="Stop" />
+                        <Pane layoutX="-1.0" prefHeight="263.0" prefWidth="307.0">
+                           <children>
+                              <Label layoutX="46.0" layoutY="210.0" prefHeight="32.0" prefWidth="105.0" text="Bird Name:" />
+                              <TextField layoutX="188.0" layoutY="216.0" />
+                              <ImageView fx:id="pic" fitHeight="150.0" fitWidth="200.0" layoutX="46.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </Pane>
+                        <Label layoutX="437.0" layoutY="212.0" prefHeight="27.0" prefWidth="109.0" text="Bird Size: " />
+                        <ComboBox layoutX="547.0" layoutY="221.0" prefWidth="150.0" />
                      </children>
                   </Pane>
-                  <Label layoutX="139.0" layoutY="620.0" prefHeight="32.0" prefWidth="105.0" text="Bird Name:" />
-                  <TextField layoutX="234.0" layoutY="617.0" />
-                  <Label layoutX="507.0" layoutY="623.0" prefHeight="27.0" prefWidth="109.0" text="Bird Name: " />
-                  <ComboBox layoutX="610.0" layoutY="617.0" prefWidth="150.0" />
-                  <Button layoutX="796.0" layoutY="617.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="64.0" text="Find" />
-                  <TextField layoutX="138.0" layoutY="152.0" />
-                  <Button layoutX="890.0" layoutY="6.0" mnemonicParsing="false" text="Exit" />
+                  <Button layoutX="818.0" layoutY="561.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="64.0" text="Find" />
+                  <TextField fx:id="birdName" layoutX="138.0" layoutY="152.0" />
+                  <Button fx:id="exit" layoutX="812.0" layoutY="75.0" mnemonicParsing="false" onAction="#exit" text="Exit" />
                </children>
             </AnchorPane>
+            <MenuBar layoutX="48.0" layoutY="49.0" prefHeight="18.0" prefWidth="868.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem fx:id="fillDictionary" mnemonicParsing="false" onAction="#showBirds" text="File" />
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
          </children>
       </AnchorPane>
    </center>
