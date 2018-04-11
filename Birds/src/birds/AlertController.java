@@ -32,28 +32,7 @@ public class AlertController implements Initializable {
         // set text from another class
         error.setText(text);
     } 
-private void displayAlert(String msg) {
-       /* try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Alert.fxml"));
-            Parent ERROR = loader.load();
-            AlertController controller = (AlertController) loader.getController();
-
-            Scene scene = new Scene(ERROR);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-
-            stage.getIcons().add(new Image("file:src/iPAYROLL/WesternLogo.png"));
-            controller.setAlertText(msg);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.showAndWait();
-
-        } catch (IOException ex1) {
-
-        }*/
-    }
-    
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

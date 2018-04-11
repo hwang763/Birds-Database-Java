@@ -22,6 +22,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuBar;
@@ -36,6 +38,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
 import static javafx.scene.media.MediaPlayer.Status.READY;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -115,26 +118,33 @@ public class BirdsController implements Initializable {
    }
    
    @FXML
-   public void nextBird() throws DictionaryException
-   {
-      // boolean playing = mediaPlayer.getStatus().equals(Status.PLAYING);
-
+   public void nextBird() 
+   {   
+       
+       
+     try{
    BirdRecord temp=Birds.successor(currentB);
    birdName.setText(temp.getDataKey().getbirdName());
    descrip.setText(temp.getAbout());
    Image picture=new Image(temp.getImage());
    pic.setImage(picture);
    currentB=temp.getDataKey();
+   System.out.println(temp.getDataKey().getbirdName());
+     }catch (DictionaryException ex)
+     {
+       {displayAlert("ERROR: There are no more birds");}
+     }
       if(mediaPlayer.getStatus().equals(Status.PLAYING));
        {
        stopSound();
        }
+
    }
    
    @FXML
-    public void prevBird() throws DictionaryException
+    public void prevBird()
    {
-   
+   try{
    BirdRecord temp=Birds.predecessor(currentB);
    birdName.setText(temp.getDataKey().getbirdName());
    descrip.setText(temp.getAbout());
@@ -145,12 +155,16 @@ public class BirdsController implements Initializable {
        {
        stopSound();
        }
+   }catch (DictionaryException ex)
+   {
+    displayAlert("ERROR: There are no more birds");
+   }
    }
    
    @FXML
-   public void firstBird() throws DictionaryException
+   public void firstBird()
    {
-      
+      try{
    BirdRecord temp=Birds.smallest();
    birdName.setText(temp.getDataKey().getbirdName());
    descrip.setText(temp.getAbout());
@@ -161,12 +175,16 @@ public class BirdsController implements Initializable {
        {
        stopSound();
        }
+      }catch(DictionaryException ex)
+       {
+        displayAlert("ERROR: There are no more birds");
+       }
    }
    
    @FXML
-   public void lastBird() throws DictionaryException
+   public void lastBird() 
    {
-    
+       try{
    BirdRecord temp=Birds.largest();
    birdName.setText(temp.getDataKey().getbirdName());
    descrip.setText(temp.getAbout());
@@ -177,11 +195,15 @@ public class BirdsController implements Initializable {
        {
        stopSound();
        }
+       }catch(DictionaryException ex){
+       displayAlert("ERROR: There are no more birds");
+       }
    }
    
    @FXML
-   public void delete() throws DictionaryException
+   public void delete() 
    {
+       try{
    DataKey temp=currentB;
    BirdRecord nextBird= Birds.successor(temp);
    showBird(nextBird);
@@ -189,6 +211,10 @@ public class BirdsController implements Initializable {
    System.out.println(Birds.smallest().getDataKey().getbirdName());
    //currentB=null;
    currentB=nextBird.getDataKey();
+       }catch(DictionaryException ex)
+       {
+       displayAlert("ERROR: There are no more birds");
+     }
    }
    
   @FXML
@@ -280,6 +306,28 @@ public class BirdsController implements Initializable {
         //System.out.println(tempName);
    }
    }
+    private void displayAlert(String msg) {
+        try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Alert.fxml"));
+            Parent ERROR = loader.load();
+            AlertController controller = (AlertController) loader.getController();
+
+            Scene scene = new Scene(ERROR);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+            stage.getIcons().add(new Image("file:src/birds/WesternLogo.png"));
+            System.out.println("dgfdg");
+            controller.setAlertText(msg);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+
+        } catch (IOException ex1) {
+        
+        }
+    }
+
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
