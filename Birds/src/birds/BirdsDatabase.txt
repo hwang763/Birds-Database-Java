@@ -1,9 +1,9 @@
 2
-Rock Pigeon
-Common throughout the continental United States, southern Canada, Mexico, and urban areas throughout the world. These birds thrive in human habitats, and are most populous in large cities, but can also be found in suburban and rural locations, agricultural lands and open shrub. Pigeons do not migrate.
-2
 Ringed Kingfisher
 Commonly found along the lower Rio Grande valley in south-eastern most Texas in the United States through Central America to Tierra del Fuego in South America. Breeding habitat is areas near large bodies of water, usually in heavily wooded areas, where it finds a perch to hunt from. Mostly a sedentary species, remaining in territories all year long.
+2
+Rock Pigeon
+Common throughout the continental United States, southern Canada, Mexico, and urban areas throughout the world. These birds thrive in human habitats, and are most populous in large cities, but can also be found in suburban and rural locations, agricultural lands and open shrub. Pigeons do not migrate.
 3
 Northern Cardinal
 This large crested finch has a vivid red body. The black mask and chin contrast with a heavy red bill. Female is duller overall, with red wings and tail washed with gray, and smaller crest. Forages on the ground in trees and bushes. Feeds on seeds, grains, fruits, insects and snails. Hops instead of walking on the ground. Alternates rapid wing beats with wings pulled to sides.
@@ -54,7 +54,7 @@ Wild Turkey
 This large, ground-walking bird is iridescent dark brown overall with black and green bars and a small, featherless blue head that changes color with mood. Red throat wattles, black breast beard and legs with spurs. Female is smaller, duller, and lacks spurs and beard. Diet includes insects and grains. Swift powerful flight for short distances with rapid wing beats and deep strokes.
 2
 Yellow-headed Parrot
-Large green parrot with yellow head. Flight feathers all tipped blue-black, patch of red on secondary feathers and at bend in wing. Curved yellow beak, gray legs and feet. Feeds on fruits, seeds, and buds. Classified as an Endangered Species owing to rapid population decline.
+Medium green parrot with yellow head. Flight feathers all tipped blue-black, patch of red on secondary feathers and at bend in wing. Curved yellow beak, gray legs and feet. Feeds on fruits, seeds, and buds. Classified as an Endangered Species owing to rapid population decline.
 3
 Mountain Quail
 Large, striking quail with long elegant black head plume, white-bordered rufous-brown face and throat, gray-brown upperparts, blue-gray breast, and rufous-brown belly and sides with distinct white bars. Rapid direct flight, series of several stiff wing beats followed by a short glide.

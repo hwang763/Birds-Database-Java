@@ -5,12 +5,20 @@
  */
 package birds;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
+import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import static java.nio.file.Files.delete;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +32,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaPlayer.Status;
+import static javafx.scene.media.MediaPlayer.Status.READY;
 import javafx.stage.Stage;
 
 /**
@@ -69,7 +81,14 @@ public class BirdsController implements Initializable {
     private MenuItem fillDictionary;
     
     OrderedDictionary Birds=new OrderedDictionary();
+    ObservableList<String> data = FXCollections.observableArrayList(
+            "1",
+            "2",
+            "3"
+    );
+    
     DataKey currentB;
+    MediaPlayer mediaPlayer;
     
     @FXML
     public void exit() {
@@ -95,63 +114,146 @@ public class BirdsController implements Initializable {
    pic.setImage(picture);
    }
    
-   
-   
    @FXML
    public void nextBird() throws DictionaryException
    {
+      // boolean playing = mediaPlayer.getStatus().equals(Status.PLAYING);
+
    BirdRecord temp=Birds.successor(currentB);
    birdName.setText(temp.getDataKey().getbirdName());
    descrip.setText(temp.getAbout());
    Image picture=new Image(temp.getImage());
    pic.setImage(picture);
    currentB=temp.getDataKey();
+      if(mediaPlayer.getStatus().equals(Status.PLAYING));
+       {
+       stopSound();
+       }
    }
    
    @FXML
     public void prevBird() throws DictionaryException
    {
+   
    BirdRecord temp=Birds.predecessor(currentB);
    birdName.setText(temp.getDataKey().getbirdName());
    descrip.setText(temp.getAbout());
    Image picture=new Image(temp.getImage());
    pic.setImage(picture);
    currentB=temp.getDataKey();
+    if(mediaPlayer.getStatus().equals(Status.PLAYING));
+       {
+       stopSound();
+       }
    }
    
    @FXML
    public void firstBird() throws DictionaryException
    {
+      
    BirdRecord temp=Birds.smallest();
    birdName.setText(temp.getDataKey().getbirdName());
    descrip.setText(temp.getAbout());
    Image picture=new Image(temp.getImage());
    pic.setImage(picture);
    currentB=temp.getDataKey();
+    if(mediaPlayer.getStatus().equals(Status.PLAYING));
+       {
+       stopSound();
+       }
+   }
+   
+   @FXML
+   public void lastBird() throws DictionaryException
+   {
+    
+   BirdRecord temp=Birds.largest();
+   birdName.setText(temp.getDataKey().getbirdName());
+   descrip.setText(temp.getAbout());
+   Image picture=new Image(temp.getImage());
+   pic.setImage(picture);
+   currentB=temp.getDataKey();
+    if(mediaPlayer.getStatus().equals(Status.PLAYING));
+       {
+       stopSound();
+       }
    }
    
    @FXML
    public void delete() throws DictionaryException
    {
    DataKey temp=currentB;
+   BirdRecord nextBird= Birds.successor(temp);
+   showBird(nextBird);
    Birds.remove(currentB);
-   showBird(temp);
-   
-   
+   System.out.println(Birds.smallest().getDataKey().getbirdName());
+   //currentB=null;
+   currentB=nextBird.getDataKey();
    }
+   
+  @FXML
+  public void findBird() throws DictionaryException{
+  
+     DataKey findThis=new DataKey(findName.getText(), Integer.parseInt((String) birdSize.getValue()));
+     
+    System.out.println(findThis.getBirdSize());
+     System.out.println(findThis.getbirdName());
+    // currentB=Birds.find(findThis).getDataKey();
+     System.out.println("hello");
+    System.out.println(findThis.getBirdSize());
+    
+    showBird(findThis);
+     
+     System.out.println("helllllllo"); 
+  }
+  
+  public void showBird(DataKey b) throws DictionaryException
+  {
+     birdName.setText(b.getbirdName());
+     descrip.setText(Birds.find(b).getAbout());
+     Image picture=new Image(Birds.find(b).getImage());
+     System.out.println(Birds.find(b).getAbout());
+     pic.setImage(picture);
+     currentB=b;
+      
+  }
+  
+  
+   @FXML
+   public void sound() throws DictionaryException
+   {
+     loadSound();
+   }
+   
+   
+   public void loadSound()
+   {
+   String path= "src/sounds/"+currentB.getbirdName()+".mp3";
+   Media media=new Media(new File(path).toURI().toString());
+   mediaPlayer= new MediaPlayer(media);
+   mediaPlayer.setAutoPlay(true);
+   mediaPlayer.play(); 
+   }
+  
+   @FXML
+   public void stop()
+   {
+   stopSound();
+   }
+   
+   public void stopSound()
+   {
+   mediaPlayer.pause();
+   }
+   
    
    private void showBird(BirdRecord b)
    {
-       birdName.setText(b.getDataKey().getbirdName());
+   birdName.setText(b.getDataKey().getbirdName());
    descrip.setText(b.getAbout());
    Image picture=new Image(b.getImage());
    pic.setImage(picture);
    currentB=b.getDataKey();
-   
-   }
-   
-   @FXML
-   public void showFirst(){
    
    }
    
@@ -169,7 +271,7 @@ public class BirdsController implements Initializable {
         String tempName=in.readLine();
         String tempAbout=in.readLine();
         String images="file:src/images/"+tempName+".jpg";
-        String sound= "file:src/sounds/"+tempName+".png";
+        String sound= "file:src/sounds/"+tempName+".mp3";
         DataKey temp = new DataKey (tempName,birdSize);
         key[i]=temp;
         BirdRecord tempRecord= new BirdRecord (temp, tempAbout, sound, images);//key about sound image
@@ -181,7 +283,7 @@ public class BirdsController implements Initializable {
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        birdSize.setItems(data);
     }
 
 }

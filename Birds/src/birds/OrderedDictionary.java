@@ -205,11 +205,7 @@ public class OrderedDictionary extends BinaryNode {
     
     public BirdRecord successor(DataKey k)throws DictionaryException
     {
-    
     BinaryNode<BirdRecord> node= findNode(k);
-    //BirdRecord record;
-    
-    //k.
     if (node == null)
         return null;
     if (node.right != null)
@@ -239,7 +235,6 @@ public class OrderedDictionary extends BinaryNode {
         x = y;
         y = y.getParentNode();
     }
-
     return y;
     }
         
