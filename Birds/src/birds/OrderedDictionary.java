@@ -18,14 +18,18 @@ public class OrderedDictionary extends BinaryNode {
    
     public BirdRecord find(DataKey k) throws DictionaryException 
     { BinaryNode<BirdRecord> current=root; 
-   while ((current.left!=null)&&(current.right!=null)){
-      if ((current.data.getDataKey().compareTo(k))== 0){
+   
+     
+  /* while ((current.left!=null)&&(current.right!=null)){
+       System.out.println("hi");
+      if ((current.getData().getDataKey().compareTo(k))== 0){
            return current.getData();
       }
-      if ((current.left.data.getDataKey().compareTo(k))== 0){
+      System.out.println("sup "+current.left.getData().getDataKey().getbirdName());
+      if ((current.left.getData().getDataKey().compareTo(k))== 0){
            return current.left.getData();
       }
-      if ((current.right.data.getDataKey().compareTo(k))== 0){
+      if ((current.right.getData().getDataKey().compareTo(k))== 0){
            return current.right.getData();
       }
       current=current.left;
@@ -42,13 +46,30 @@ public class OrderedDictionary extends BinaryNode {
            return current.right.getData();
       }
       current=current.right;
-    }
+    }*/
+  
+  while (current!=null){
+      
+      if (current.getData().getDataKey().compareTo(k)==0){
+          
+          return current.getData();
+      }
+      else if (current.getData().getDataKey().compareTo(k)==-1){
+          
+          current=current.right;
+          
+      }
+      else if (current.getData().getDataKey().compareTo(k)==1){
+          current=current.left;
+      }
+  }
+ 
     return null;
   }
       
     private BinaryNode<BirdRecord> findNode(DataKey k){
         BinaryNode<BirdRecord> current=root; 
-   while ((current.left!=null)&&(current.right!=null)){
+  /* while ((current.left!=null)&&(current.right!=null)){
       if ((current.data.getDataKey().compareTo(k))== 0){
            return current;
       }
@@ -72,7 +93,22 @@ public class OrderedDictionary extends BinaryNode {
            return current.right;
       }
       current=current.right;
-    }
+    }*/
+  while (current!=null){
+     
+      if (current.getData().getDataKey().compareTo(k)==0){
+          
+          return current;
+      }
+      else if (current.getData().getDataKey().compareTo(k)==-1){
+          
+          current=current.right;
+          
+      }
+      else if (current.getData().getDataKey().compareTo(k)==1){
+          current=current.left;
+     }
+  }
     return null;
     }
 
@@ -90,12 +126,12 @@ public class OrderedDictionary extends BinaryNode {
         if (x.getData().getDataKey().compareTo(node.getData().getDataKey())==1)   
         {
             y = x;
-            x = x.getLeftChild();
+            x = x.left;
         }
         else
         {
             y = x;
-            x = x.getRightChild();
+            x = x.right;
         }
        
         
@@ -118,8 +154,9 @@ public class OrderedDictionary extends BinaryNode {
     public void remove(DataKey k) throws DictionaryException
     {BinaryNode <BirdRecord> node= null;
     node = findNode(k);
+    
      // Case 1: node does not have a child, just delete it
-    if (node.getLeftChild() == null && node.getRightChild() == null)
+    if ((node.left == null) &&( node.right == null))
     {
         if (node.getParentNode() != null && node.getParentNode().getLeftChild() == node)
             node.setLeftChild(null);
@@ -172,12 +209,12 @@ public class OrderedDictionary extends BinaryNode {
     //k.
     if (node == null)
         return null;
-    if (node.getRightChild() != null)
-        return smallestNode(node.getRightChild()).getData();
+    if (node.right != null)
+        return smallestNode(node.right).getData();
    
     BinaryNode <BirdRecord>y = node.getParentNode();
     BinaryNode <BirdRecord>x = node;
-    while (y != null && x == y.getRightChild())
+    while (y != null && x == y.right)
     {
         x = y;
         y = y.getParentNode();
@@ -189,12 +226,12 @@ public class OrderedDictionary extends BinaryNode {
          if (node == null)
         return null;
     
-    if (node.getRightChild() != null)
-        return smallestNode(node.getRightChild());
+    if (node.right != null)
+        return smallestNode(node.right);
    
     BinaryNode<BirdRecord> y = node.getParentNode();
     BinaryNode<BirdRecord> x = node;
-    while (y != null && x == y.getRightChild())
+    while (y != null && x == y.right)
     {
         x = y;
         y = y.getParentNode();
@@ -210,12 +247,12 @@ public class OrderedDictionary extends BinaryNode {
       if (node == null)
         return null;
     
-      if (node.getLeftChild() != null)
-        return largestNode(node.getLeftChild()).getData();
+      if (node.left != null)
+        return largestNode(node.left).getData();
    
        BinaryNode <BirdRecord>y = node.getParentNode();
        BinaryNode <BirdRecord>x = node;
-    while (y != null && x == y.getLeftChild())
+    while (y != null && x == y.left)
     {
         x = y;
         y = y.getParentNode();
@@ -230,8 +267,8 @@ public class OrderedDictionary extends BinaryNode {
      if (root == null)
         return null;
   
-    if (root.getLeftChild() != null)
-        return smallestNode(root.getLeftChild()).getData();
+    if (root.left != null)
+        return smallestNode(root.left).getData();
   
     return root.getData();
     }
@@ -241,8 +278,8 @@ public class OrderedDictionary extends BinaryNode {
        if (root == null)
         return null;
   
-    if (root.getLeftChild() != null)
-        return smallestNode(root.getLeftChild());
+    if (root.left != null)
+        return smallestNode(root.left);
   
     return root;
     }
@@ -253,8 +290,8 @@ public class OrderedDictionary extends BinaryNode {
       if (root == null)
         return null;
    
-    if (root.getRightChild() != null)
-        return largestNode(root.getRightChild()).getData();
+    if (root.right != null)
+        return largestNode(root.right).getData();
    
     return root.getData();
     }
@@ -264,8 +301,8 @@ public class OrderedDictionary extends BinaryNode {
          if (root == null)
         return null;
    
-    if (root.getRightChild() != null)
-        return largestNode(root.getRightChild());
+    if (root.right != null)
+        return largestNode(root.right);
    
     return root;  
     }

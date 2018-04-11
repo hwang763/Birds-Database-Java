@@ -125,7 +125,7 @@ public class OrderedDictionaryTest {
         BirdRecord record2;
         try {
             String expResult2 = records[3].getAbout();
-            record2 = instance.successor(new DataKey("Ew",1));
+            record2 = instance.successor(new DataKey("Eagle",1));
             String result2 = record2.getAbout();
             assertEquals(expResult2, result2);
         } catch (DictionaryException ex) {
@@ -159,7 +159,7 @@ public class OrderedDictionaryTest {
         BirdRecord record2;
         try {
             String expResult2 = records[2].getAbout();
-            record2 = instance.predecessor(new DataKey("Fa",3));
+            record2 = instance.predecessor(new DataKey("Falcon",3));
             String result2 = record2.getAbout();
             assertEquals(expResult2, result2);
         } catch (DictionaryException ex) {

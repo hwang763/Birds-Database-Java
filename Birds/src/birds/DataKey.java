@@ -24,7 +24,7 @@ public class DataKey {
             if (k.birdName==birdName&&birdSize==k.birdSize){
                 return 0;
             }
-            else if ((birdSize<k.birdSize)||((birdName.compareTo(k.birdName))<0)){
+            else if ((birdSize<k.birdSize)||((birdName.compareTo(k.birdName))<0&& birdSize==k.birdSize)){
                 return -1;
             }
          
